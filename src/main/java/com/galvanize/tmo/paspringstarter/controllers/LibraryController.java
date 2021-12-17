@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping("api/books")
 public class LibraryController {
 
     @Autowired
@@ -33,7 +33,7 @@ public class LibraryController {
 
     @GetMapping
     public ResponseEntity<List<Book>> getAllBooks() {
-        return new ResponseEntity<>(service.getAllBooks(), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(service.getAllBooks(), HttpStatus.OK);
     }
 
     @DeleteMapping

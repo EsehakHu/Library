@@ -19,6 +19,16 @@ public class Book {
   @Column
   Integer yearPublished;
 
+  public Book(Long id, String author, String title, Integer yearPublished) {
+    this.id = id;
+    this.author = author;
+    this.title = title;
+    this.yearPublished = yearPublished;
+  }
+
+  public Book() {
+  }
+
   public void setId(Long id) {
     this.id = id;
   }
