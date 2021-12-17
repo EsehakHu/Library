@@ -3,13 +3,13 @@ package com.galvanize.tmo.paspringstarter.model;
 import java.util.List;
 
 public class BookStore {
-  List<Book> bookList;
+  List<Book> books;
 
-  public void setBookList(List<Book> bookList) {
-    this.bookList = bookList;
+  public void setBooks(List<Book> books) {
+    this.books = books;
   }
 
-  public List<Book> getBookList() {
-    return bookList;
+  public List<Book> getBooks() {
+    return books;
   }
 }
