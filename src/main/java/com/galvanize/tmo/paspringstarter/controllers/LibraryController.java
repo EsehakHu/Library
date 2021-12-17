@@ -2,6 +2,7 @@ package com.galvanize.tmo.paspringstarter.controllers;
 
 
 import com.galvanize.tmo.paspringstarter.model.Book;
+import com.galvanize.tmo.paspringstarter.model.BookStore;
 import com.galvanize.tmo.paspringstarter.service.LibraryService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,12 +34,14 @@ public class LibraryController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Book>> getAllBooks() {
+    public ResponseEntity<BookStore> getAllBooks() {
         System.out.println("Requested to get all Books: ");
         List<Book> books = service.getAllBooks();
+        BookStore bookStore = new BookStore();
+        bookStore.setBookList(books);
         System.out.println("sizes of Books found: " + books.size());
         books.forEach(book -> System.out.println("Found book:==" + book.toString()));
-        return new ResponseEntity<>(books, HttpStatus.OK);
+        return new ResponseEntity<>(bookStore, HttpStatus.OK);
     }
 
     @DeleteMapping
