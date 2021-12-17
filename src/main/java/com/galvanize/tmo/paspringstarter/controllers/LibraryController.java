@@ -28,16 +28,21 @@ public class LibraryController {
 
     @PostMapping
     public ResponseEntity<Book> addBooks(@RequestBody Book book ) {
+        System.out.println("Requested to add book with details: " + book.toString());
         return new ResponseEntity<>(service.saveBook(book), HttpStatus.CREATED);
     }
 
     @GetMapping
     public ResponseEntity<List<Book>> getAllBooks() {
-        return new ResponseEntity<>(service.getAllBooks(), HttpStatus.OK);
+        System.out.println("Requested to get all Books: ");
+        List<Book> books = service.getAllBooks();
+        System.out.println("sizes of Books found: " + books.size());
+        return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
     @DeleteMapping
     public ResponseEntity<Book> deleteAllBooks() {
+        System.out.println("Requested to delete all Books: ");
         service.deleteAllBooks();
         return new ResponseEntity<>(new Book(), HttpStatus.NO_CONTENT);
     }

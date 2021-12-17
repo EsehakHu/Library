@@ -1,5 +1,6 @@
 package com.galvanize.tmo.paspringstarter.model;
 
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -59,5 +60,34 @@ public class Book {
 
   public Integer getYearPublished() {
     return yearPublished;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof Book)) {
+      return false;
+    }
+    Book book = (Book) o;
+    return Objects.equals(getId(), book.getId()) && Objects.equals(getAuthor(),
+        book.getAuthor()) && Objects.equals(getTitle(), book.getTitle())
+        && Objects.equals(getYearPublished(), book.getYearPublished());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(getId(), getAuthor(), getTitle(), getYearPublished());
+  }
+
+  @Override
+  public String toString() {
+    return "Book{" +
+        "id=" + id +
+        ", author='" + author + '\'' +
+        ", title='" + title + '\'' +
+        ", yearPublished=" + yearPublished +
+        '}';
   }
 }
