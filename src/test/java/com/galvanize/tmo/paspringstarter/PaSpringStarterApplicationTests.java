@@ -22,7 +22,7 @@ class PaSpringStarterApplicationTests {
 
 	@Test
 	void isHealthy() throws Exception {
-		mockMvc.perform(get("/health"))
+		mockMvc.perform(get("/api/books/health"))
 				.andExpect(status().isOk());
 	}
 }
