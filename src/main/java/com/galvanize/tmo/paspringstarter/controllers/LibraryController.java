@@ -37,6 +37,7 @@ public class LibraryController {
         System.out.println("Requested to get all Books: ");
         List<Book> books = service.getAllBooks();
         System.out.println("sizes of Books found: " + books.size());
+        books.forEach(book -> System.out.println("Found book:==" + book.toString()));
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
